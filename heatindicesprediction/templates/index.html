@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Index Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #22c1c3, #6ebf8f, #fdbb2d);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #22c1c3;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #6ebf8f;
+        }
+
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Heat Index Prediction</h1>
+        <form method="post">
+            <label for="temp">Temperature (°C):</label>
+            <input type="number" step="0.1" id="temp" name="temp" required>
+            
+            <label for="hum">Humidity (%):</label>
+            <input type="number" step="0.1" id="hum" name="hum" required>
+            
+            <label for="wind_speed">Average Wind Speed (km/h):</label>
+            <input type="number" step="0.1" id="wind_speed" name="wind_speed" required>
+            
+            <label for="solar_rad">Solar Radiation (W/m²):</label>
+            <input type="number" step="0.1" id="solar_rad" name="solar_rad" required>
+            
+            <label for="dew_point">Dew Point (°C):</label>
+            <input type="number" step="0.1" id="dew_point" name="dew_point" required>
+            
+            <button type="submit">Predict Heat Index</button>
+        </form>
+
+        {% if prediction is not none %}
+            <h2>Predicted Heat Index: {{ prediction }} °C</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
+

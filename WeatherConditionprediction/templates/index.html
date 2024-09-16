@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Condition Prediction</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #22c1c3, #6ebf8f, #fdbb2d);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #22c1c3;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #6ebf8f;
+        }
+        h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Weather Details</h2>
+        <form method="POST">
+            <label for="temperature_celsius">Temperature (°C):</label>
+            <input type="text" id="temperature_celsius" name="temperature_celsius">
+
+            <label for="humidity">Humidity (%):</label>
+            <input type="text" id="humidity" name="humidity">
+
+            <label for="wind_mph">Wind Speed (mph):</label>
+            <input type="text" id="wind_mph" name="wind_mph">
+
+            <label for="pressure_mb">Pressure (mb):</label>
+            <input type="text" id="pressure_mb" name="pressure_mb">
+
+            <label for="precip_mm">Precipitation (mm):</label>
+            <input type="text" id="precip_mm" name="precip_mm">
+
+            <label for="uv_index">UV Index:</label>
+            <input type="text" id="uv_index" name="uv_index">
+
+            <input type="submit" value="Predict Condition">
+        </form>
+
+        {% if prediction %}
+            <h3>Predicted Condition: {{ prediction }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
+

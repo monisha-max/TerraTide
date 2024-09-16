@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analysis</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #22c1c3, #6ebf8f, #fdbb2d);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 500px; /* Adjust as needed */
+        }
+
+        label, input {
+            display: block;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #22c1c3;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6ebf8f;
+        }
+
+        h1 {
+            color: rgb(16, 14, 14);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DEW POINT,TEMPERATURE AND HUMIDITY ANALYSIS</h1>
+        <form method="POST" action="/">
+            <label for="start_date">Start Date (YYYY-MM-DD):</label>
+            <input type="text" id="start_date" name="start_date" required><br><br>
+
+            <label for="end_date">End Date (YYYY-MM-DD):</label>
+            <input type="text" id="end_date" name="end_date" required><br><br>
+
+            <input type="submit" value="Analyze Data">
+        </form>
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Analysis Results</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #22c1c3, #6ebf8f, #fdbb2d);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2, p {
+            color: rgb(19, 17, 17);
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: #22c1c3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #fdbb2d;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Analysis Results</h1>
+        
+        <h2>Temperature Trend</h2>
+        <img src="data:image/png;base64,{{ plot_url }}" alt="Temperature Trend">
+        
+        <h2>Correlation Heatmap</h2>
+        <img src="data:image/png;base64,{{ heatmap_url }}" alt="Correlation Heatmap">
+
+        <h2>Detailed Analysis</h2>
+        <p><strong>Highest Temperature:</strong> {{ analysis_results.temp_max }}°C at {{ analysis_results.temp_peaks }}</p>
+        <p><strong>Lowest Temperature:</strong> {{ analysis_results.temp_min }}°C at {{ analysis_results.temp_drops }}</p>
+        <p><strong>Highest Humidity:</strong> {{ analysis_results.hum_max }}% at {{ analysis_results.hum_peaks }}</p>
+        <p><strong>Lowest Humidity:</strong> {{ analysis_results.hum_min }}% at {{ analysis_results.hum_drops }}</p>
+        <p><strong>Correlation between Temperature and Humidity:</strong> {{ analysis_results.correlation_temp_humidity }}</p>
+        <p><strong>Highest Dew Point:</strong> {{ analysis_results.dew_max }}°C at {{ analysis_results.dew_peaks }}</p>
+        <p><strong>Lowest Dew Point:</strong> {{ analysis_results.dew_min }}°C at {{ analysis_results.dew_drops }}</p>
+
+        <h2>Practical Applications:</h2>
+        <ul>
+            <li>High temperature and humidity with a high dew point can lead to heat stress.</li>
+            <li>Rising dew point might signal increasing humidity or forthcoming rain.</li>
+            <li>Monitoring these trends can help assess comfort and predict potential weather changes.</li>
+        </ul>
+        
+        <a href="/">Go back to analysis page</a>
+    </div>
+</body>
+</html>
