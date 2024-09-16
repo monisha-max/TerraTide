@@ -3,7 +3,7 @@ import openai
 import gradio as gr
 
 #the API key for accessing OpenAI's services is set
-openai.api_key = "sk-IbSppy326ofoXut99sCMvpCnU2AGK7dzG3bSU5NoT8T3BlbkFJohmIHOh3L_dESIf-o24Ec1CeJpX54gJWU4A9xvvtcA"
+openai.api_key = "replace with ur open ai key"
 
 #Initializes a list with a system-generated message introducing the 'IntelliTax' assistant.
 messages = [{"role": "system", "content": "assistant of agroapp"}]
